@@ -1,0 +1,125 @@
+[
+
+    {
+        "product_id":"11",
+        "name": "2 in 1 anglecock",
+        "category":"Faucets",
+        "collection":"AURA",
+        "range":"AURA",
+        "price":"2000",
+        "discount":"30%",
+        "image":"2 in 1 anglecock.jpg",
+        "description":""
+    },
+    {
+        "product_id":"22",
+        "name": "2 in 1 bibcock",
+        "category":"Faucets",
+        "collection":"AURA",
+        "range":"AURA",
+        "price":"2000",
+        "discount":"30%",
+        "image":"2 in 1 bibcock.jpg",
+        "description":""
+    },
+    {
+        "product_id":"33",
+        "name": "basin mixer",
+        "category":"Mixers",
+        "collection":"AURA",
+        "range":"AURA",
+        "price":"2000",
+        "discount":"30%",
+        "image":"basin mixer.jpg",
+        "description":""
+    },
+    {
+        "product_id":"44",
+        "name": "anglecock",
+        "category":"Faucets",
+        "collection":"AURA",
+        "range":"AURA",
+        "price":"2000",
+        "discount":"30%",
+        "image":"anglecock.jpg",
+        "description":""
+    },
+    {
+        "product_id":"55",
+        "name": "BIBCOCK",
+        "category":"Faucets",
+        "collection":"AURA",
+        "range":"AURA",
+        "price":"2000",
+        "discount":"30%",
+        "image":"BIBCOCK.jpg",
+        "description":""
+    },
+    {
+        "product_id":"66",
+        "name": "csc",
+        "category":"Faucets",
+        "collection":"AURA",
+        "range":"AURA",
+        "price":"2000",
+        "discount":"30%",
+        "image":"csc.jpg",
+        "description":""
+    },
+    {
+        "product_id":"77",
+        "name": "longbody",
+        "category":"Faucets",
+        "collection":"AURA",
+        "range":"AURA",
+        "price":"2000",
+        "discount":"30%",
+        "image":"longbody.jpg",
+        "description":""
+    },
+    {
+        "product_id":"99",
+        "name": "shinkmixer",
+        "category":"Mixers",
+        "collection":"AURA",
+        "range":"AURA",
+        "price":"2000",
+        "discount":"30%",
+        "image":"shinkmixer.jpg",
+        "description":""
+    },
+    {
+        "product_id":"1010",
+        "name": "SINKCOCK",
+        "category":"Faucets",
+        "collection":"AURA",
+        "range":"AURA",
+        "price":"2000",
+        "discount":"30%",
+        "image":"SINKCOCK.jpg",
+        "description":""
+    },
+    {
+        "product_id":"1111",
+        "name": "SWANNECK",
+        "category":"Faucets",
+        "collection":"AURA",
+        "range":"AURA",
+        "price":"2000",
+        "discount":"30%",
+        "image":"SWANNECK.jpg",
+        "description":""
+    },
+    {
+        "product_id":"1212",
+        "name": "WALLMIXER L BEND",
+        "category":"Mixers",
+        "collection":"AURA",
+        "range":"AURA",
+        "price":"2000",
+        "discount":"30%",
+        "image":"WALLMIXER L BEND.jpg",
+        "description":""
+    }
+    
+    ]

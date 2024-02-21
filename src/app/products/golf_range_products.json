@@ -1,0 +1,125 @@
+[
+
+    {
+        "product_id":"11",
+        "name": "2 in 1 anglecock",
+        "category":"Faucets",
+        "collection":"GOLF",
+        "range":"GOLF",
+        "price":"2000",
+        "discount":"30%",
+        "image":"2 in 1 anglecock.jpg",
+        "description":""
+    },
+    {
+        "product_id":"22",
+        "name": "2 in 1 bibcock",
+        "category":"Faucets",
+        "collection":"GOLF",
+        "range":"GOLF",
+        "price":"2000",
+        "discount":"30%",
+        "image":"2 in 1 bibcock.jpg",
+        "description":""
+    },
+    {
+        "product_id":"44",
+        "name": "anglecock",
+        "category":"Faucets",
+        "collection":"GOLF",
+        "range":"GOLF",
+        "price":"2000",
+        "discount":"30%",
+        "image":"anglecock.jpg",
+        "description":""
+    },
+    {
+        "product_id":"55",
+        "name": "BIBCOCK",
+        "category":"Faucets",
+        "collection":"GOLF",
+        "range":"GOLF",
+        "price":"2000",
+        "discount":"30%",
+        "image":"BIBCOCK.jpg",
+        "description":""
+    },
+    {
+        "product_id":"66",
+        "name": "csc",
+        "category":"Faucets",
+        "collection":"GOLF",
+        "range":"GOLF",
+        "price":"2000",
+        "discount":"30%",
+        "image":"csc.jpg",
+        "description":""
+    },
+    {
+        "product_id":"77",
+        "name": "longbody",
+        "category":"Faucets",
+        "collection":"GOLF",
+        "range":"GOLF",
+        "price":"2000",
+        "discount":"30%",
+        "image":"longbody.jpg",
+        "description":""
+    },
+    {
+        "product_id":"33",
+        "name": "nozzle bibcock",
+        "category":"Faucets",
+        "collection":"GOLF",
+        "range":"GOLF",
+        "price":"2000",
+        "discount":"30%",
+        "image":"nozzle bibcock.jpg",
+        "description":""
+    },
+    {
+        "product_id":"1111",
+        "name": "SWANNECK",
+        "category":"Faucets",
+        "collection":"GOLF",
+        "range":"GOLF",
+        "price":"2000",
+        "discount":"30%",
+        "image":"SWANNECK.jpg",
+        "description":""
+    },
+    {
+        "product_id":"1212",
+        "name": "WALLMIXER",
+        "category":"Mixers",
+        "collection":"GOLF",
+        "range":"GOLF",
+        "price":"2000",
+        "discount":"30%",
+        "image":"WALLMIXER.jpg",
+        "description":""
+    },
+    {
+        "product_id":"99",
+        "name": "WASHING TAP",
+        "category":"Faucets",
+        "collection":"GOLF",
+        "range":"GOLF",
+        "price":"2000",
+        "discount":"30%",
+        "image":"WASHING TAP.jpg",
+        "description":""
+    },
+    {
+        "product_id":"99",
+        "name": "sinkcock",
+        "category":"Faucets",
+        "collection":"GOLF",
+        "range":"GOLF",
+        "price":"2000",
+        "discount":"30%",
+        "image":"sinkcock.jpg",
+        "description":""
+    }
+    
+    ]
