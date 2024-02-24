@@ -1,58 +1,52 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import Carousel from "react-bootstrap/Carousel";
+import { Container } from "react-bootstrap";
 
 export default function Home() {
+  const ranges = ["Arya Range", "Aura Range", "Golf Range", "Health Faucet Set", "Milano Range", "Nexa Range"];
   return (
     <>
     <div id="slider" className="section-container p-0 bg-dark">
-			
-			<div id="main-carousel" className="carousel slide" data-ride="carousel">
-				<div className="carousel-inner">
-					
-					<div className="carousel-item active" data-paroller="true" data-paroller-factor="0.3" data-paroller-factor-sm="0.01" data-paroller-factor-xs="0.01" style={{"background": "url(../assets/img/slider/slider-1-cover.jpg) center 0 / cover no-repeat;"}}>
-						<div className="container">
-							<img src="../assets/img/products/ARYA RANGE/WALLMIXER L BEND.jpg" className="product-img right bottom fadeInRight animated" alt="" />
-						</div>
+	<Carousel>
+	<div className="carousel-item" data-paroller="true" data-paroller-factor="0.3" data-paroller-factor-sm="0.01" data-paroller-factor-xs="0.01" style={{"background": "url('https://topsan.in/media/backend/images/category-banner-img/Banner_2100_x_720_-1_pixel.jpg') center 0 / cover no-repeat;"}}>
+						{/* <div className="container">
+						<img src="../assets/img/pape_banner.png" className="product-img right bottom fadeInRight animated" alt="" />
+
+						</div> */}
 						<div className="carousel-caption carousel-caption-left text-white">
 							<div className="container">
-								<h3 className="title mb-5px fadeInLeftBig animated">WALLMIXER L BEND</h3>
-								<p className="mb-15px fadeInLeftBig animated">Arya Range premium bath fitting. Tik-tik fitting inside</p>
-								<div className="price mb-30px fadeInLeftBig animated"><small>from</small> <span>Rs. 2500/-</span></div>
+								<h3 className="title mb-5px fadeInLeftBig animated">Sanitaryware</h3>
+{/* 								<p className="mb-15px fadeInLeftBig animated">Arya Range premium bath fitting. Tik-tik fitting inside</p>
+ */}								<div className="price mb-30px fadeInLeftBig animated"><small>from</small> <span>Rs. 2500/-</span></div>
 								<a href="product_detail.html" className="btn btn-outline btn-lg fadeInLeftBig animated">Buy Now</a>
 							</div>
 						</div>
 					</div>
-					<div className="carousel-item" data-paroller="true" data-paroller-factor="-0.3" data-paroller-factor-sm="0.01" data-paroller-factor-xs="0.01" style={{"background": "url(../assets/img/slider/slider-2-cover.jpg) center 0 / cover no-repeat;"}}>
-						<div className="container">
+					<div className="carousel-item" data-paroller="true" data-paroller-factor="-0.3" data-paroller-factor-sm="0.01" data-paroller-factor-xs="0.01" style={{"background": "url('https://topsan.in/media/backend/images/category-banner-img/Banner_2100_x_720_pixel(2).jpg') center 0 / cover no-repeat;"}}>
+						{/* <div className="container">
 							<img src="../assets/img/slider/slider-2-product.png" className="product-img left bottom fadeInLeft animated" alt="" />
-						</div>
-						<div className="carousel-caption carousel-caption-right text-white">
+						</div> */}
+						<div className="carousel-caption carousel-caption-left text-white">
 							<div className="container">
-								<h3 className="title mb-5px fadeInRightBig animated">iPhone X</h3>
-								<p className="mb-15px fadeInRightBig animated">Say hello to the future.</p>
-								<div className="price mb-30px fadeInRightBig animated"><small>from</small> <span>$1,149.00</span></div>
-								<a href="product_detail.html" className="btn btn-outline btn-lg fadeInRightBig animated">Buy Now</a>
+								<h3 className="title mb-5px fadeInRightBig animated">Faucets</h3>
+{/* 								<p className="mb-15px fadeInRightBig animated">Say hello to the future.</p>
+ */}								<div className="price mb-30px fadeInRightBig animated"><small>from</small> <span>$1,149.00</span></div>
+								<a href="product_detail.html" className="btn btn-lg fadeInRightBig animated">Buy Now</a>
 							</div>
 						</div>
 					</div>
-					<div className="carousel-item" data-paroller="true" data-paroller-factor="-0.3" data-paroller-factor-sm="0.01" data-paroller-factor-xs="0.01" style={{"background": "url(../assets/img/slider/slider-3-cover.jpg) center 0 / cover no-repeat;"}}>
+					<div className="carousel-item" data-paroller="true" data-paroller-factor="-0.3" data-paroller-factor-sm="0.01" data-paroller-factor-xs="0.01" style={{"background": "url('https://s3-ap-south-1.amazonaws.com/delta-faucet-india-cdn/assets/images/collections/bathroom/zura-website-banner.jpg') center 0 / cover no-repeat;"}}>
 						<div className="carousel-caption text-white">
 							<div className="container">
-								<h3 className="title mb-5px fadeInDownBig animated">Macbook Air</h3>
+								<h3 className="title mb-5px fadeInDownBig animated">Bath Collections</h3>
 								<p className="mb-15px fadeInDownBig animated">Thin.Light.Powerful.<br />And ready for anything</p>
 								<div className="price fadeInDownBig animated"><small>from</small> <span>$999.00</span></div>
 								<a href="product_detail.html" className="btn btn-outline btn-lg fadeInUpBig animated">Buy Now</a>
 							</div>
 						</div>
 					</div>
-				</div>
-				<a className="carousel-control-prev" href="#main-carousel" data-bs-slide="prev"> 
-					<i className="fa fa-angle-left"></i> 
-				</a>
-				<a className="carousel-control-next" href="#main-carousel" data-bs-slide="next"> 
-					<i className="fa fa-angle-right"></i> 
-				</a>
-			</div>
+    </Carousel>
 		</div>
 		
 		<div id="promotions" className="section-container bg-component">
@@ -62,67 +56,67 @@ export default function Home() {
 						Exclusive promotions
 						<small>from 25 September 2023 - 1 January 2023</small>
 					</span>
-					<a href="#" className="btn">SHOW ALL</a>
+					<a href="/products" className="btn">SHOW ALL</a>
 				</h4>
 				<div className="row gx-2">
 					<div className="col-lg-6">
 						<div className="promotion promotion-lg bg-dark">
 							<div className="promotion-image text-end promotion-image-overflow-bottom">
-								<img src="../assets/img/products/MILANO RANGE/WALLMIXER L BEND.jpg" alt="" />
+								<img src="../assets/img/pape_tap_ex_1.png" alt="" />
 							</div>
 							<div className="promotion-caption promotion-caption-inverse">
-								<h4 className="promotion-title">3 x1 wallmixer</h4>
-								<div className="promotion-price"><small>from</small> Rs. 3000/-</div>
+								<h4 className="promotion-title"> Arya Basin Mixer 6" & 12"</h4>
+								<div className="promotion-price"><small>from</small> Rs. 4619/-</div>
 								<p className="promotion-desc">A big step for small.<br />A beloved design. Now with more to love.</p>
-								<a href="#" className="promotion-btn">View More</a>
+								<a href="/products" className="promotion-btn">View More</a>
 							</div>
 						</div>
 					</div>
 					<div className="col-lg-3 col-md-6">
 						<div className="promotion bg-blue">
 							<div className="promotion-image promotion-image-overflow-bottom promotion-image-overflow-top">
-								<img src="...png" alt="" />
+								<img src="../assets/img/pape_mixer.png" alt="" />
 							</div>
 							<div className="promotion-caption promotion-caption-inverse text-end">
 								<h4 className="promotion-title">Wall Mixers</h4>
 								<div className="promotion-price"><small>from</small> Rs. 299.00</div>
 								<p className="promotion-desc">You. At a glance.</p>
-								<a href="#" className="promotion-btn">View More</a>
+								<a href="/products" className="promotion-btn">View More</a>
 							</div>
 						</div>
 						<div className="promotion bg-gray-200">
-							<div className="promotion-image text-center promotion-image-overflow-bottom">
-								<img src="...png" alt="" />
+						<div className="promotion-image text-end">
+								<img src="../assets/img/pape_spout.png" alt="" />
 							</div>
-							<div className="promotion-caption text-center">
-								<h4 className="promotion-title">Taps</h4>
-								<div className="promotion-price"><small>from</small> Rs. 199.00</div>
-								<p className="promotion-desc">It’s mini in a massive way.</p>
-								<a href="#" className="promotion-btn">View More</a>
+							<div className="promotion-caption">
+								<h4 className="promotion-title">Flexible Spout</h4>
+								<div className="promotion-price"><small>from</small> Rs. 1,299.00</div>
+								<p className="promotion-desc">Built for creativity on an epic scale.</p>
+								<a href="/products" className="promotion-btn">View More</a>
 							</div>
 						</div>
 					</div>
 					<div className="col-lg-3 col-md-6">
 						<div className="promotion bg-gray-200">
-							<div className="promotion-image promotion-image-overflow-right promotion-image-overflow-bottom text-end">
-								<img src="../.png" alt="" />
+							<div className="promotion-image promotion-image-overflow-bottom promotion-image-overflow-top">
+								<img src="../assets/img/pape_faucet.png" alt="" />
 							</div>
-							<div className="promotion-caption text-center">
+							<div className="promotion-caption text-end">
 								<h4 className="promotion-title">Faucets</h4>
 								<div className="promotion-price"><small>from</small> Rs. 99.00</div>
 								<p className="promotion-desc">Redesigned. Rechargeable. Remarkable.</p>
-								<a href="#" className="promotion-btn">View More</a>
+								<a href="/products" className="promotion-btn">View More</a>
 							</div>
 						</div>
 						<div className="promotion bg-dark">
 							<div className="promotion-image text-end">
-								<img src="../.png" alt="" />
+								<img src="../assets/img/pape_shower.png" alt="" />
 							</div>
 							<div className="promotion-caption promotion-caption-inverse">
 								<h4 className="promotion-title">Showers</h4>
 								<div className="promotion-price"><small>from</small> Rs. 1,299.00</div>
 								<p className="promotion-desc">Built for creativity on an epic scale.</p>
-								<a href="#" className="promotion-btn">View More</a>
+								<a href="/products" className="promotion-btn">View More</a>
 							</div>
 						</div>
 					</div>
@@ -248,27 +242,18 @@ export default function Home() {
 			<div className="container">
 				<h4 className="section-title clearfix">
 					<span className="flex-1">
-						Mobile Phones
-						<small>Shop and get your favourite phone at amazing prices!</small>
+						Faucets
+						<small>Shop and get your favourite faucet at amazing prices!</small>
 					</span>
-					<a href="#" className="btn">SHOW ALL</a>
+					<a href="/products" className="btn">SHOW ALL</a>
 				</h4>
 				<div className="category-container">
 					<div className="category-sidebar">
 						<ul className="category-list">
-							<li className="list-header">Top Categories</li>
-							<li><a href="#">Microsoft</a></li>
-							<li><a href="#">Samsung</a></li>
-							<li><a href="#">Apple</a></li>
-							<li><a href="#">Micromax</a></li>
-							<li><a href="#">Karbonn</a></li>
-							<li><a href="#">Intex</a></li>
-							<li><a href="#">Sony</a></li>
-							<li><a href="#">HTC</a></li>
-							<li><a href="#">Asus</a></li>
-							<li><a href="#">Nokia</a></li>
-							<li><a href="#">Blackberry</a></li>
-							<li><a href="#">All Brands</a></li>
+						<li className="list-header">Top Categories</li>
+							{ranges && ranges.map(item => 
+									<li><a href="/products">{item}</a></li>
+								)}
 						</ul>
 					</div>
 					
@@ -278,11 +263,10 @@ export default function Home() {
 						<a href="#" className="category-item full">
 							<div className="item">
 								<div className="item-cover">
-									<img src="../assets/img/products/MILANO RANGE/WALLMIXER L BEND.jpg" alt="" />
+									<img src="../assets/img/pape_banner_1.png" alt="" />
 								</div>
 								<div className="item-info bottom">
-									<h4 className="item-title">Samsung Galaxy s7 Edge + Geat 360 + Gear VR</h4>
-									<p className="item-desc">Redefine what a phone can do</p>
+									<h4 className="item-title">Pillar cock tall boy 12"</h4>
 									<div className="item-price">$799.00</div>
 								</div>
 							</div>
@@ -391,21 +375,18 @@ export default function Home() {
 			<div className="container">
 				<h4 className="section-title clearfix">
 					<span className="flex-1">
-						Tablet
+						Mixers
 						<small>Shop and get your favourite tablet at amazing prices!</small>
 					</span>
-					<a href="#" className="btn">SHOW ALL</a>
+					<a href="/products" className="btn">SHOW ALL</a>
 				</h4>
 				<div className="category-container">
 					<div className="category-sidebar">
 						<ul className="category-list">
 							<li className="list-header">Top Categories</li>
-							<li><a href="#">Apple</a></li>
-							<li><a href="#">HP</a></li>
-							<li><a href="#">Huawei</a></li>
-							<li><a href="#">Samsung</a></li>
-							<li><a href="#">Sony</a></li>
-							<li><a href="#">All Brands</a></li>
+							{ranges && ranges.map(item => 
+									<li><a href="/products">{item}</a></li>
+								)}
 						</ul>
 					</div>
 					
@@ -415,7 +396,7 @@ export default function Home() {
 						<a href="#" className="category-item full">
 							<div className="item">
 								<div className="item-cover">
-									<img src="../assets/img/product/product-huawei-mediapad.jpg" alt="" />
+									<img src="../assets/img/" alt="" />
 								</div>
 								<div className="item-info bottom">
 									<h4 className="item-title">Huawei MediaPad T1 7.0</h4>

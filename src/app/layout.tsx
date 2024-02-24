@@ -178,7 +178,7 @@ export default function RootLayout({
                       <li><a href="#" className="dropdown-item"><img src="../assets/img/flag/flag-chinese.png" className="flag-img" alt="" /> Chinese</a></li>
                     </ul>
                   </li>
-                  <li><a href="#">Customer Care</a></li>
+                  <li><a href="/customerCare">Customer Care</a></li>
                   <li><a href="#">Order Tracker</a></li>
                 </ul>
                 <ul className="nav navbar-nav navbar-end">
@@ -204,11 +204,13 @@ export default function RootLayout({
                 </button>
                 <div className="header-logo">
                   <a href="/">
-                    <span className="brand-logo"></span>
-                    <span className="brand-text">
+                    <span>
+                      <img src="../assets/img/pape_logo.png"></img>
+                    </span>
+                    {/* <span className="brand-text">
                       <span>PAPE</span>
                       <small>Premium Bath Fittings</small>
-                    </span>
+                    </span> */}
                   </a>
                 </div>
                 <div className="header-nav">
@@ -234,10 +236,10 @@ export default function RootLayout({
                                   </Link></li>)}
                               </ul>
                             </div>
-                            <div className="dropdown-menu-content">
+                            <div className="dropdown-menu-content dropdown-prod-list">
 
                               <div className="row">
-                                <div className="col-lg-6">
+                                <div className="col-lg-auto">
                                   <h4 className="title">Faucets</h4>
                                   <ul className="dropdown-menu-list">
                                     {data && data.map((item: any, index: any) => {
@@ -245,7 +247,7 @@ export default function RootLayout({
                                     })}
                                   </ul>
                                 </div>
-                                <div className="col-lg-6">
+                                <div className="col-lg-auto">
                                   <h4 className="title">Mixers</h4>
                                   <ul className="dropdown-menu-list">
                                     {data && data.map((item: any, index: any) => {
@@ -253,6 +255,15 @@ export default function RootLayout({
                                     })}
                                   </ul>
                                 </div>
+                                <div className="col-lg-auto">
+                                  <h4 className="title">Jet Spray</h4>
+                                  <ul className="dropdown-menu-list">
+                                    {data && data.map((item: any, index: any) => {
+                                      return <li key={index}><a href={"/products/" + item.product_id}>{item.name}</a></li>
+                                    })}
+                                  </ul>
+                                </div>
+                                
                               </div>
                               {/*<h4 className="title">Shop By Brand</h4>
 												<ul className="dropdown-brand-list mb-0">
