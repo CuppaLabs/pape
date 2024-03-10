@@ -3,8 +3,18 @@ import styles from "./page.module.css";
 import Carousel from "react-bootstrap/Carousel";
 import { Container } from "react-bootstrap";
 
-export default function Home() {
-  const ranges = ["Arya Range", "Aura Range", "Golf Range", "Health Faucet Set", "Milano Range", "Nexa Range"];
+async function getData() {
+	const products = await fetch('http://localhost:3000/assets/products.json').then((res) => res.json())
+   
+	return products;
+  }
+export default async function Home() {
+	const products = await getData();
+	const list = products.map((obj: any) => obj.category);
+	const list2 = products.map((obj: any) => obj.range);
+
+	const categories = Array.from(new Set(list));
+	const ranges = Array.from(new Set(list2));
   return (
     <>
     <div id="slider" className="section-container p-0 bg-dark">
@@ -131,118 +141,39 @@ export default function Home() {
 						Trending Items
 					<small>Shop and get your favourite items at amazing prices!</small>
 					</span>
-					<div className="btn-group">
+{/* 					<div className="btn-group">
 						<a href="#" className="btn"><i className="fa fa-angle-left fs-16px"></i></a>
 						<a href="#" className="btn"><i className="fa fa-angle-right fs-16px"></i></a>
-					</div>
+					</div> */}
 				</h4>
 				<div className="row gx-2">
+					{products.splice(0, 6).map((product: any) => 
 					<div className="col-lg-2 col-md-4 col-sm-6">
 						<div className="item item-thumbnail">
 							<a href="product_detail.html" className="item-image">
-								<img src="../assets/img/products/MILANO RANGE/2 IN 1 ANGLECOCK.jpg" alt="" />
+								<img src={"../assets/img/products/"+product.range+' RANGE/'+product.image} alt="" />
 								<div className="discount">15% OFF</div>
 							</a>
 							<div className="item-info">
 								<h4 className="item-title">
-									<a href="product_detail.html">2 IN 1 ANGLECOCK<br />Milano Range</a>
+									<a href="product_detail.html">{product.name}<br />{product.range} Range</a>
 								</h4>
 								<p className="item-desc">3D Touch. 12MP photos. 4K video.</p>
 								<div className="item-price">$649.00</div>
-								<div className="item-discount-price">Rs. 249.00</div>
+								<div className="item-discount-price">Rs. {product.price}</div>
 							</div>
 						</div>
 					</div>
-					<div className="col-lg-2 col-md-4 col-sm-6">
-						<div className="item item-thumbnail">
-							<a href="product_detail.html" className="item-image">
-								<img src="../assets/img/products/AURA RANGE/2 IN 1 ANGLECOCK.jpg" alt=""  />
-								<div className="discount">32% OFF</div>
-							</a>
-							<div className="item-info">
-								<h4 className="item-title">
-									<a href="product.html">2 IN 1 ANGLECOCK<br />Aura Range</a>
-								</h4>
-								<p className="item-desc">Super. Computer. Now in two sizes.</p>
-								<div className="item-price">$599.00</div>
-								<div className="item-discount-price">Rs. 249.00</div>
-							</div>
-						</div>
-					</div>
-					<div className="col-lg-2 col-md-4 col-sm-6">
-						<div className="item item-thumbnail">
-							<a href="product_detail.html" className="item-image">
-								<img src="../assets/img/products/MILANO RANGE/PILLERCOCK.jpg" alt="" />
-								<div className="discount">20% OFF</div>
-							</a>
-							<div className="item-info">
-								<h4 className="item-title">
-									<a href="product.html">PILLERCOCK<br />MILANO RANGE</a>
-								</h4>
-								<p className="item-desc">Retina. Now in colossal and ginormous.</p>
-								<div className="item-price">$1,099.00</div>
-								<div className="item-discount-price">Rs. 249.00</div>
-							</div>
-						</div>
-					</div>
-					<div className="col-lg-2 col-md-4 col-sm-6">
-						<div className="item item-thumbnail">
-							<a href="product_detail.html" className="item-image">
-								<img src="../assets/img/products/MILANO RANGE/WASHING TAP.jpg" alt="" />
-								<div className="discount">13% OFF</div>
-							</a>
-							<div className="item-info">
-								<h4 className="item-title">
-									<a href="product.html">WASHING TAP<br />MILANO RANGE</a>
-								</h4>
-								<p className="item-desc">You. At a glance.</p>
-								<div className="item-price">$599.00</div>
-								<div className="item-discount-price">Rs. 249.00</div>
-							</div>
-						</div>
-					</div>
-
-					<div className="col-lg-2 col-md-4 col-sm-6">
-						<div className="item item-thumbnail">
-							<a href="product_detail.html" className="item-image">
-								<img src="../assets/img/products/GOLF RANGE/anglecock.jpg" alt="" />
-								<div className="discount">30% OFF</div>
-							</a>
-							<div className="item-info">
-								<h4 className="item-title">
-									<a href="product.html">Angle Cock<br />GOLF RANGE</a>
-								</h4>
-								<p className="item-desc">Stunning Retina Display</p>
-								<div className="item-price">$1299.00</div>
-								<div className="item-discount-price">Rs. 249.00</div>
-							</div>
-						</div>
-					</div>
-
-					<div className="col-lg-2 col-md-4 col-sm-6">
-						<div className="item item-thumbnail">
-							<a href="product_detail.html" className="item-image">
-								<img src="../assets/img/products/NEXA RANGE/2 in 1 bibcock.jpg" alt="" />
-								<div className="discount">40% OFF</div>
-							</a>
-							<div className="item-info">
-								<h4 className="item-title">
-									<a href="product.html">2 in 1 bibcock<br />NEXA RANGE</a>
-								</h4>
-								<p className="item-desc">The future of television is here.</p>
-								<div className="item-price">$149.00</div>
-								<div className="item-discount-price">Rs. 249.00</div>
-							</div>
-						</div>
-					</div>
+					)}
 				</div>
 			</div>
 		</div>
-		<div id="mobile-list" className="section-container pt-0">
+		{categories.map((cat: any) => 
+		<div className="section-container pt-0">
 			<div className="container">
 				<h4 className="section-title clearfix">
 					<span className="flex-1">
-						Faucets
+						{cat}
 						<small>Shop and get your favourite faucet at amazing prices!</small>
 					</span>
 					<a href="/products" className="btn">SHOW ALL</a>
@@ -251,8 +182,8 @@ export default function Home() {
 					<div className="category-sidebar">
 						<ul className="category-list">
 						<li className="list-header">Top Categories</li>
-							{ranges && ranges.map(item => 
-									<li><a href="/products">{item}</a></li>
+							{ranges && ranges.map((item: any) => 
+									<li><a href="/products">{item+' RANGE'}</a></li>
 								)}
 						</ul>
 					</div>
@@ -275,233 +206,48 @@ export default function Home() {
 						
 						<div className="category-item list">
 							<div className="item-row">
+								{products.filter((obj: any) => obj.category === cat).slice(0, 3).map((prod: any) => 
 								<div className="item item-thumbnail">
 									<a href="product_detail.html" className="item-image">
-										<img src="../assets/img/products/MILANO RANGE/SINKCOCK.jpg" alt="" />
+										<img src={"../assets/img/products/"+prod.range+' RANGE/'+prod.image} alt="" />
 										<div className="discount">15% OFF</div>
 									</a>
 									<div className="item-info">
 										<h4 className="item-title">
-											<a href="product_detail.html">iPhone 6s Plus<br />16GB</a>
+											<a href="product_detail.html">{prod.name}<br />{prod.range}</a>
 										</h4>
-										<p className="item-desc">3D Touch. 12MP photos. 4K video.</p>
-										<div className="item-price">$649.00</div>
-										<div className="item-discount-price">$739.00</div>
+										<div className="item-price">{prod.price}</div>
+										<div className="item-discount-price">{prod.price}</div>
 									</div>
 								</div>
-								<div className="item item-thumbnail">
-									<a href="product_detail.html" className="item-image">
-										<img src="../assets/img/products/MILANO RANGE/SINKCOCK.jpg" alt="" />
-										<div className="discount">32% OFF</div>
-									</a>
-									<div className="item-info">
-										<h4 className="item-title">
-											<a href="product.html">Samsung Galaxy Note 5<br />Black</a>
-										</h4>
-										<p className="item-desc">Super. Computer. Now in two sizes.</p>
-										<div className="item-price">$599.00</div>
-										<div className="item-discount-price">$799.00</div>
-									</div>
-								</div>
-								<div className="item item-thumbnail">
-									<a href="product_detail.html" className="item-image">
-										<img src="../assets/img/products/MILANO RANGE/SINKCOCK.jpg" alt="" />
-										<div className="discount">20% OFF</div>
-									</a>
-									<div className="item-info">
-										<h4 className="item-title">
-											<a href="product.html">iPhone SE<br />32/64Gb</a>
-										</h4>
-										<p className="item-desc">A big step for small.</p>
-										<div className="item-price">$499.00</div>
-										<div className="item-discount-price">$599.00</div>
-									</div>
-								</div>
-							</div>
-							
-							<div className="item-row">
-								<div className="item item-thumbnail">
-									<a href="product_detail.html" className="item-image">
-										<img src="../assets/img/products/MILANO RANGE/SINKCOCK.jpg" alt="" />
-										<div className="discount">15% OFF</div>
-									</a>
-									<div className="item-info">
-										<h4 className="item-title">
-											<a href="product_detail.html">Assus ZenFone 2<br />‏(ZE550ML)</a>
-										</h4>
-										<p className="item-desc">See What Others Can’t See</p>
-										<div className="item-price">$399.00</div>
-										<div className="item-discount-price">$453.00</div>
-									</div>
-								</div>
-								<div className="item item-thumbnail">
-									<a href="product_detail.html" className="item-image">
-										<img src="../assets/img/products/MILANO RANGE/SINKCOCK.jpg" alt="" />
-										<div className="discount">32% OFF</div>
-									</a>
-									<div className="item-info">
-										<h4 className="item-title">
-											<a href="product.html">Sony Xperia Z<br />Black Color</a>
-										</h4>
-										<p className="item-desc">For unexpectedly beautiful moments</p>
-										<div className="item-price">$599.00</div>
-										<div className="item-discount-price">$799.00</div>
-									</div>
-								</div>
-								<div className="item item-thumbnail">
-									<a href="product_detail.html" className="item-image">
-										<img src="../assets/img/products/MILANO RANGE/SINKCOCK.jpg" alt="" />
-										<div className="discount">20% OFF</div>
-									</a>
-									<div className="item-info">
-										<h4 className="item-title">
-											<a href="product.html">Microsoft Lumia 531<br />Smartphone Orange</a>
-										</h4>
-										<p className="item-desc">1 Year Local Manufacturer Warranty</p>
-										<div className="item-price">$99.00</div>
-										<div className="item-discount-price">$199.00</div>
-									</div>
-								</div>
-							</div>
-							
-						</div>
-						
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div id="tablet-list" className="section-container pt-0">
-			<div className="container">
-				<h4 className="section-title clearfix">
-					<span className="flex-1">
-						Mixers
-						<small>Shop and get your favourite tablet at amazing prices!</small>
-					</span>
-					<a href="/products" className="btn">SHOW ALL</a>
-				</h4>
-				<div className="category-container">
-					<div className="category-sidebar">
-						<ul className="category-list">
-							<li className="list-header">Top Categories</li>
-							{ranges && ranges.map(item => 
-									<li><a href="/products">{item}</a></li>
 								)}
-						</ul>
-					</div>
-					
-					
-					<div className="category-detail">
-						
-						<a href="#" className="category-item full">
-							<div className="item">
-								<div className="item-cover">
-									<img src="../assets/img/" alt="" />
-								</div>
-								<div className="item-info bottom">
-									<h4 className="item-title">Huawei MediaPad T1 7.0</h4>
-									<p className="item-desc">Vibrant colors. Beautifully displayed</p>
-									<div className="item-price">$299.00</div>
-								</div>
-							</div>
-						</a>
-						
-						
-						<div className="category-item list">
-							<div className="item-row">
-								<div className="item item-thumbnail">
-									<a href="product_detail.html" className="item-image">
-										<img src="../assets/img/products/MILANO RANGE/longbody.jpg" alt="" />
-										<div className="discount">15% OFF</div>
-									</a>
-									<div className="item-info">
-										<h4 className="item-title">
-											<a href="product_detail.html">9.7-inch iPad Pro<br />32GB</a>
-										</h4>
-										<p className="item-desc">3D Touch. 12MP photos. 4K video.</p>
-										<div className="item-price">$649.00</div>
-										<div className="item-discount-price">$739.00</div>
-									</div>
-								</div>
-								<div className="item item-thumbnail">
-									<a href="product_detail.html" className="item-image">
-										<img src="../assets/img/products/MILANO RANGE/longbody.jpg" alt="" />
-										<div className="discount">32% OFF</div>
-									</a>
-									<div className="item-info">
-										<h4 className="item-title">
-											<a href="product.html">Samsung Galaxy Tab S2<br />Black</a>
-										</h4>
-										<p className="item-desc">A Brilliant Screen That Adjusts to You</p>
-										<div className="item-price">$399.99</div>
-										<div className="item-discount-price">$499.00</div>
-									</div>
-								</div>
-								<div className="item item-thumbnail">
-									<a href="product_detail.html" className="item-image">
-										<img src="../assets/img/products/MILANO RANGE/longbody.jpg" alt="" />
-										<div className="discount">20% OFF</div>
-									</a>
-									<div className="item-info">
-										<h4 className="item-title">
-											<a href="product.html">Samsung Galaxy Tab A<br />9.7 16Gb(Wi-Fi)</a>
-										</h4>
-										<p className="item-desc">Keep All Your Samsung Devices In Sync</p>
-										<div className="item-price">$349.99</div>
-										<div className="item-discount-price">$399.99</div>
-									</div>
-								</div>
 							</div>
 							
 							<div className="item-row">
+								{products.filter((obj: any) => obj.category === cat).slice(3, 6).map((prod: any) => 
 								<div className="item item-thumbnail">
 									<a href="product_detail.html" className="item-image">
-										<img src="../assets/img/products/MILANO RANGE/longbody.jpg" alt="" />
+										<img src={"../assets/img/products/"+prod.range+' RANGE/'+prod.image} alt="" />
 										<div className="discount">15% OFF</div>
 									</a>
 									<div className="item-info">
 										<h4 className="item-title">
-											<a href="product_detail.html">HP Spectre x2<br />‏12-a011nr</a>
+											<a href="product_detail.html">{prod.name}<br />{prod.range}</a>
 										</h4>
-										<p className="item-desc">Our thinnest detachable separates from all others.</p>
-										<div className="item-price">$799.99</div>
-										<div className="item-discount-price">$850.00</div>
+										<div className="item-price">{prod.price}</div>
+										<div className="item-discount-price">{prod.price}</div>
 									</div>
 								</div>
-								<div className="item item-thumbnail">
-									<a href="product_detail.html" className="item-image">
-										<img src="../assets/img/products/MILANO RANGE/longbody.jpg" alt="" />
-										<div className="discount">32% OFF</div>
-									</a>
-									<div className="item-info">
-										<h4 className="item-title">
-											<a href="product.html">Sony Xperia Z2 Tablet<br />Black Color</a>
-										</h4>
-										<p className="item-desc">For unexpectedly beautiful moments</p>
-										<div className="item-price">$199.00</div>
-										<div className="item-discount-price">$259.00</div>
-									</div>
-								</div>
-								<div className="item item-thumbnail">
-									<a href="product_detail.html" className="item-image">
-										<img src="../assets/img/products/MILANO RANGE/longbody.jpg" alt="" />
-										<div className="discount">20% OFF</div>
-									</a>
-									<div className="item-info">
-										<h4 className="item-title">
-											<a href="product.html">iPad Air 2<br />32/64Gb</a>
-										</h4>
-										<p className="item-desc">Light. Heavyweight.</p>
-										<div className="item-price">$399.00</div>
-										<div className="item-discount-price">$459.00</div>
-									</div>
-								</div>
+								)}
 							</div>
+							
 						</div>
+						
 					</div>
 				</div>
 			</div>
 		</div>
+		)}
 		
 		<div id="policy" className="section-container bg-component">
 			<div className="container">

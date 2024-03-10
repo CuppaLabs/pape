@@ -1,54 +1,69 @@
+import type { InferGetStaticPropsType, GetStaticProps } from 'next'
 
 
 export async function generateStaticParams() {
-  /* const posts = await fetch('https://.../posts').then((res) => res.json())
+  const products = await fetch('http://localhost:3000/assets/products.json').then((res) => res.json())
  
-  return posts.map((post: any) => ({
-    slug: post.slug,
-  })) */
-  return [{ slug: '1' }, { slug: '2' }, { slug: '3' }];
+  return products.map((prod: any) => ({
+    "slug": prod.product_id}));
 }
-export default function Products({ params }: any) {
-  const { slug } = params;
+
+async function getData(id: any) {
+  const products = await fetch('http://localhost:3000/assets/products.json').then((res) => res.json())
+ 
+  return products.filter((obj: any) => obj.product_id === id).map((prod: any) => ({
+    "slug": prod.product_id,
+    "product_id": prod.product_id,
+			"name": prod.name,
+			"category": prod.category,
+			"collection": prod.collection,
+			"range": prod.range,
+			"price": prod.price,
+			"discount": prod.discount,
+			"image": prod.image,
+			"description": prod.description
+
+  }));
+}
+export default async function Products({ params }: any) {
+  const { slug} = params;
+  const data = await getData(slug);
+  console.log(data);
+
+  const { name, category, image, price, range } = data[0];
+
   return (
   <>
       <div id="product" className="section-container pt-20px">
     <div className="container">
       <ul className="breadcrumb">
         <li className="breadcrumb-item"><a href="#">Home</a></li>
-        <li className="breadcrumb-item"><a href="#">Mobile Phone</a></li>
-        <li className="breadcrumb-item"><a href="#">Apple</a></li>
-        <li className="breadcrumb-item active">iPhone 6S Plus</li>
+        <li className="breadcrumb-item"><a href="#">{category}</a></li>
+        <li className="breadcrumb-item active">{name}</li>
       </ul>
       <div className="product">
         <div className="product-detail">
           <div className="product-image">
             <div className="product-thumbnail">
               <ul className="product-thumbnail-list">
-                <li className="active"><a href="#" data-click="show-main-image" data-url="../assets/img/product/product-iphone-6s-plus.png"><img src="../assets/img/product/product-iphone-6s-plus.png" alt="" /></a></li>
-                <li><a href="#" data-click="show-main-image" data-url="../assets/img/product/product-iphone-6s-plus-2.jpg"><img src="../assets/img/product/product-iphone-6s-plus-2.jpg" alt="" /></a></li>
-                <li><a href="#" data-click="show-main-image" data-url="../assets/img/product/product-iphone-6s-plus-3.jpg"><img src="../assets/img/product/product-iphone-6s-plus-3.jpg" alt="" /></a></li>
-                <li><a href="#" data-click="show-main-image" data-url="../assets/img/product/product-iphone-6s-plus-4.jpg"><img src="../assets/img/product/product-iphone-6s-plus-4.jpg" alt="" /></a></li>
-                <li><a href="#" data-click="show-main-image" data-url="../assets/img/product/product-iphone-6s-plus-5.jpg"><img src="../assets/img/product/product-iphone-6s-plus-5.jpg" alt="" /></a></li>
-                <li><a href="#" data-click="show-main-image" data-url="../assets/img/product/product-iphone-6s-plus-6.jpg"><img src="../assets/img/product/product-iphone-6s-plus-6.jpg" alt="" /></a></li>
-                <li><a href="#" data-click="show-main-image" data-url="../assets/img/product/product-iphone-6s-plus-7.jpg"><img src="../assets/img/product/product-iphone-6s-plus-7.jpg" alt="" /></a></li>
+                <li className="active"><a href="#" data-click="show-main-image" data-url="../assets/img/product/product-iphone-6s-plus.png"><img src={"../assets/img/products/"+range+" RANGE/"+image} alt="" /></a></li>
+                <li><a href="#" data-click="show-main-image" data-url="../assets/img/product/product-iphone-6s-plus-2.jpg"><img src={"../assets/img/products/"+range+" RANGE/"+image} alt="" /></a></li>
+                <li><a href="#" data-click="show-main-image" data-url="../assets/img/product/product-iphone-6s-plus-3.jpg"><img src={"../assets/img/products/"+range+" RANGE/"+image} alt="" /></a></li>
+                <li><a href="#" data-click="show-main-image" data-url="../assets/img/product/product-iphone-6s-plus-4.jpg"><img src={"../assets/img/products/"+range+" RANGE/"+image} alt="" /></a></li>
+                <li><a href="#" data-click="show-main-image" data-url="../assets/img/product/product-iphone-6s-plus-5.jpg"><img src={"../assets/img/products/"+range+" RANGE/"+image} alt="" /></a></li>
+                <li><a href="#" data-click="show-main-image" data-url="../assets/img/product/product-iphone-6s-plus-6.jpg"><img src={"../assets/img/products/"+range+" RANGE/"+image} alt="" /></a></li>
+                <li><a href="#" data-click="show-main-image" data-url="../assets/img/product/product-iphone-6s-plus-7.jpg"><img src={"../assets/img/products/"+range+" RANGE/"+image} alt="" /></a></li>
               </ul>
             </div>
             <div className="product-main-image" data-id="main-image">
-              <img src="../assets/img/product/product-iphone-6s-plus.png" alt="" />
+              <img src={"../assets/img/products/"+range+" RANGE/"+image} alt="" />
             </div>
           </div>
           <div className="product-info">
             <div className="product-info-header">
-              <h1 className="product-title"><span className="badge bg-primary">41% OFF</span> {slug} </h1>
+              <h1 className="product-title"><span className="badge bg-primary">41% OFF</span> {name} </h1>
               <ul className="product-category">
-                <li><a href="#">iPhone</a></li>
-                <li>/</li>
-                <li><a href="#">mobile phone</a></li>
-                <li>/</li>
-                <li><a href="#">electronics</a></li>
-                <li>/</li>
-                <li><a href="#">lifestyle</a></li>
+                <li><a href="#">{category}</a></li>
               </ul>
             </div>
             <div className="product-warranty">
@@ -64,7 +79,7 @@ export default function Products({ params }: any) {
               <li><i className="fa fa-circle"></i> 4k video recording</li>
               <li><i className="fa fa-circle"></i> iOS 9 with Touch ID and Apple Pay</li>
             </ul>
-            <div className="product-social">
+{/*             <div className="product-social">
               <ul>
                 <li><a href="javascript:;" className="facebook" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-title="Facebook" data-bs-placement="top"><i className="fab fa-facebook-f"></i></a></li>
                 <li><a href="javascript:;" className="twitter" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-title="Twitter" data-bs-placement="top"><i className="fab fa-twitter"></i></a></li>
@@ -72,13 +87,13 @@ export default function Products({ params }: any) {
                 <li><a href="javascript:;" className="whatsapp" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-title="Whatsapp" data-bs-placement="top"><i className="fab fa-whatsapp"></i></a></li>
                 <li><a href="javascript:;" className="tumblr" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-title="Tumblr" data-bs-placement="top"><i className="fab fa-tumblr"></i></a></li>
               </ul>
-            </div>
+            </div> */}
             <div className="product-purchase-container">
               <div className="product-discount">
                 <span className="discount">$869.00</span>
               </div>
               <div className="product-price">
-                <div className="price">$749.00</div>
+                <div className="price">{price}</div>
               </div>
               <a href="checkout_cart.html" className="btn btn-dark btn-theme btn-lg w-200px">ADD TO CART</a>
             </div>
@@ -91,7 +106,7 @@ export default function Products({ params }: any) {
             <li className="nav-item"><a className="nav-link" href="#product-reviews" data-bs-toggle="tab">Rating & Reviews (5)</a></li>
           </ul>
           <div id="product-tab-content" className="tab-content">
-            <div className="tab-pane fade active show" id="product-desc">
+{/*             <div className="tab-pane fade active show" id="product-desc">
               <div className="product-desc">
                 <div className="image">
                   <img src="../assets/img/product/product-main.jpg" alt="" />
@@ -422,7 +437,7 @@ export default function Products({ params }: any) {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
