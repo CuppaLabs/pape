@@ -10,63 +10,97 @@ export default function CustomerCare() {
 					<li className="breadcrumb-item active">Contact Us</li>
 				</ul>
 				<div className="row row-space-30">
-					<div className="col-md-8">
+					<div className="col-md-5">
 						<h4 className="mt-0">Contact Form</h4>
+						<div className="card border-0">
+						<div className="card-body">
 						<p className="mb-30px fs-13px">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis tortor justo, elementum volutpat ante porta eu. 
-							Sed eget tellus neque. Nam feugiat magna turpis. Vestibulum pharetra nibh et pretium efficitur. Donec porta sollicitudin laoreet. 
-							Sed a condimentum urna. Curabitur placerat ornare venenatis. Cras iaculis venenatis imperdiet.
+							Please send us your queries and we will revert to you as soon as possible.
 						</p>
 						<form className="form-horizontal" name="contact_us_form" action="contact_us.html" method="GET">
 							<div className="mb-2 row">
-								<label className="col-form-label col-md-3 text-lg-end">Name <span className="text-danger">*</span></label>
-								<div className="col-md-7">
+								<label className="col-form-label col-md-2 text-lg-end">Name <span className="text-danger">*</span></label>
+								<div className="col-md-8">
 									<input type="text" className="form-control"  name="name" />
 								</div>
 							</div>
 							<div className="mb-2 row">
-								<label className="col-form-label col-md-3 text-lg-end">Email <span className="text-danger">*</span></label>
-								<div className="col-md-7">
+								<label className="col-form-label col-md-2 text-lg-end">Email <span className="text-danger">*</span></label>
+								<div className="col-md-8">
 									<input type="text" className="form-control" name="email" />
 								</div>
 							</div>
 							<div className="mb-2 row">
-								<label className="col-form-label col-md-3 text-lg-end">Subject <span className="text-danger">*</span></label>
-								<div className="col-md-7">
+								<label className="col-form-label col-md-2 text-lg-end">Subject <span className="text-danger">*</span></label>
+								<div className="col-md-8">
 									<input type="text" className="form-control" name="subject" />
 								</div>
 							</div>
 							<div className="mb-2 row">
-								<label className="col-form-label col-md-3 text-lg-end">Message <span className="text-danger">*</span></label>
-								<div className="col-md-7">
+								<label className="col-form-label col-md-2 text-lg-end">Message <span className="text-danger">*</span></label>
+								<div className="col-md-8">
 									<textarea className="form-control" rows={10} name="message"></textarea>
 								</div>
 							</div>
 							<div className="mb-2 row">
-								<label className="col-form-label col-md-3"></label>
+								<label className="col-form-label col-md-2"></label>
 								<div className="col-md-7">
 									<button type="submit" className="btn btn-dark btn-theme">SEND MESSAGE</button>
 								</div>
 							</div>
 						</form>
+						</div>
+					</div>
+
+
+
+
+					</div>
+					<div className="col-md-3">
+						<h4 className="mt-0">Call Us</h4>
+						<div className="card border-0">
+						<div className="card-body">
+							<h1 className="card-title text-lg-center"><i className="fa fa-phone"></i></h1>
+							<br></br>
+							<h5 className="card-title text-lg-center">
+								+91-9902384179
+							</h5>
+							<h5 className="card-title text-lg-center">
+								+91-9902384179
+							</h5>
+							<h5 className="card-title text-lg-center">
+								+91-9902384179
+							</h5>
+						</div>
+					</div>
+					<br></br>
+					<br></br>
+					<h4 className="mt-0">Email Us</h4>
+						<div className="card border-0">
+						<div className="card-body">
+							<h1 className="card-title text-lg-center"><i className="fa fa-envelope"></i></h1>
+							<br></br>
+							<h5 className="card-title text-lg-center">
+							info@papebathfittings.com
+							</h5>
+						</div>
+					</div>
 					</div>
 					<div className="col-md-4">
-						<h4 className="mt-0">Our Contacts</h4>
+						<h4 className="mt-0">Our Address</h4>
 						<div className="ratio ratio-16x9 mb-15px">
 							<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3306.9584799260138!2d-118.49437019999998!3d34.019276700000006!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2a4cedd1266ff%3A0x1ffe328381544853!2sGoogle+Inc!5e0!3m2!1sen!2s!4v1435718319426"></iframe>
 						</div>
-						<div><b>SeanTheme Store, Inc</b></div>
+						<div><b>PAPE India Pvt Ltd</b></div>
 						<p className="mb-15px">
-							795 Folsom Ave, Suite 600<br />
-							San Francisco, CA 94107<br />
-							P: (123) 456-7890<br />
+							795 Gandhi street<br />
+							Bhopal, Madhya Pradesh<br />
+							India<br />
 						</p>
-						<div><b>Email</b></div>
+{/* 						<div><b>Email</b></div>
 						<p className="mb-15px">
-							<a href="mailto:hello@emailaddress.com" className="text-dark">info@seantheme.com</a><br />
-							<a href="mailto:hello@emailaddress.com" className="text-dark">business@seantheme.com</a><br />
-							<a href="mailto:hello@emailaddress.com" className="text-dark">support@seantheme.com</a><br />
-						</p>
+							<a href="mailto:hello@emailaddress.com" className="text-dark">info@papebathfittings.com</a><br />
+						</p> */}
 						<div className="mb-5px"><b>Social Network</b></div>
 						<p className="mb-15px">
 							<a href="#" className="btn btn-icon btn-white btn-circle"><i className="fab fa-facebook"></i></a>

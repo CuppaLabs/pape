@@ -32,3 +32,6 @@
     font-size: 1.45rem !important;
     color: #cfa816 !important;
 }
+.search-item-container .col {
+    padding: 0;
+}

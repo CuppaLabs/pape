@@ -1,146 +1,57 @@
+"use client";
 import Link from "next/link";
+import React, { useEffect, useState } from 'react';
+import Pagination, { paginate } from "../components/pagination";
+
+async function getData() {
+	const products = await fetch('http://localhost:3000/assets/products.json').then((res) => res.json())
+
+	return products.map((prod: any) => ({
+		"slug": prod.product_id,
+		"product_id": prod.product_id,
+		"name": prod.name,
+		"category": prod.category,
+		"collection": prod.collection,
+		"range": prod.range,
+		"price": prod.price,
+		"discount": prod.discount,
+		"image": prod.image,
+		"description": prod.description
+
+	}));
+}
 
 export default function Products() {
-	const data = [
+	const [currentPage, setCurrentPage] = useState(1);
+	const [data, setData] = useState([]);
+	const [paginatedData, setPaginatedData] = useState([]);
 
-		{
-			"product_id": "1",
-			"name": "2 in 1 anglecock",
-			"category": "Faucets",
-			"collection": "ARYA",
-			"range": "ARYA RANGE",
-			"price": "2000",
-			"discount": "30%",
-			"image": "2 in 1 anglecock.jpg",
-			"description": ""
-		},
-		{
-			"product_id": "2",
-			"name": "2 in 1 bibcock",
-			"category": "Faucets",
-			"collection": "ARYA",
-			"range": "ARYA RANGE",
-			"price": "2000",
-			"discount": "30%",
-			"image": "2 in 1 bibcock.jpg",
-			"description": ""
-		},
-		{
-			"product_id": "3",
-			"name": "3 x1 wallmixer",
-			"category": "Mixers",
-			"collection": "ARYA",
-			"range": "ARYA RANGE",
-			"price": "2000",
-			"discount": "30%",
-			"image": "3 x1 wallmixer.jpg",
-			"description": ""
-		},
-		{
-			"product_id": "4",
-			"name": "anglecock",
-			"category": "Faucets",
-			"collection": "ARYA",
-			"range": "ARYA RANGE",
-			"price": "2000",
-			"discount": "30%",
-			"image": "anglecock.jpg",
-			"description": ""
-		},
-		{
-			"product_id": "5",
-			"name": "BIBCOCK",
-			"category": "Faucets",
-			"collection": "ARYA",
-			"range": "ARYA RANGE",
-			"price": "2000",
-			"discount": "30%",
-			"image": "BIBCOCK.jpg",
-			"description": ""
-		},
-		{
-			"product_id": "6",
-			"name": "csc",
-			"category": "Faucets",
-			"collection": "ARYA",
-			"range": "ARYA RANGE",
-			"price": "2000",
-			"discount": "30%",
-			"image": "csc.jpg",
-			"description": ""
-		},
-		{
-			"product_id": "7",
-			"name": "longbody",
-			"category": "Faucets",
-			"collection": "ARYA",
-			"range": "ARYA RANGE",
-			"price": "2000",
-			"discount": "30%",
-			"image": "longbody.jpg",
-			"description": ""
-		},
-		{
-			"product_id": "8",
-			"name": "PILLERCOCK",
-			"category": "Faucets",
-			"collection": "ARYA",
-			"range": "ARYA RANGE",
-			"price": "2000",
-			"discount": "30%",
-			"image": "PILLERCOCK.jpg",
-			"description": ""
-		},
-		{
-			"product_id": "9",
-			"name": "shinkmixer",
-			"category": "Mixers",
-			"collection": "ARYA",
-			"range": "ARYA RANGE",
-			"price": "2000",
-			"discount": "30%",
-			"image": "shinkmixer.jpg",
-			"description": ""
-		},
-		{
-			"product_id": "10",
-			"name": "SINKCOCK",
-			"category": "Faucets",
-			"collection": "ARYA",
-			"range": "ARYA RANGE",
-			"price": "2000",
-			"discount": "30%",
-			"image": "SINKCOCK.jpg",
-			"description": ""
-		},
-		{
-			"product_id": "11",
-			"name": "SWANNEC",
-			"category": "Faucets",
-			"collection": "ARYA",
-			"range": "ARYA RANGE",
-			"price": "2000",
-			"discount": "30%",
-			"image": "SWANNEC.jpg",
-			"description": ""
-		},
-		{
-			"product_id": "12",
-			"name": "WALLMIXER L BEND",
-			"category": "Mixers",
-			"collection": "ARYA",
-			"range": "ARYA RANGE",
-			"price": "2000",
-			"discount": "30%",
-			"image": "WALLMIXER L BEND.jpg",
-			"description": ""
+	const pageSize = 9;
+
+	const onPageChange = (page: any) => {
+		setCurrentPage(page);
+	};
+	useEffect(() => {
+		async function fetchData() {
+			const data = await getData();
+			setData(data);
+			const paginatedPosts = paginate(data, currentPage, pageSize);
+			setPaginatedData(paginatedPosts);
+			const newData: any = [];
+			while (paginatedPosts.length) newData.push(paginatedPosts.splice(0, 3));
+			setPaginatedData(newData);
+
 		}
+		fetchData();
+	}, []);
+	useEffect(() => {
+		const paginatedPosts = paginate(data, currentPage, pageSize);
+		setPaginatedData(paginatedPosts);
+		const newData: any = [];
+		while (paginatedPosts.length) newData.push(paginatedPosts.splice(0, 3));
+		setPaginatedData(newData);
 
-	];
-	const newData = [];
-	while (data.length) newData.push(data.splice(0, 3));
-
-	console.log(newData);
+	}, [currentPage]);
 	return (
 		<>
 			<div id="page-header" className="section-container page-header-container bg-dark">
@@ -201,14 +112,14 @@ export default function Products() {
 								</div>
 							</div>
 							<div className="search-item-container">
-								{newData && newData.map((item: any, index: any) =>
+								{paginatedData && paginatedData.map((item: any, index: any) =>
 									<div className="item-row" key={index}>
 										{item && item.map((itemc: any, index: any) =>
 											<div className="item item-thumbnail" key={index}>
 												<Link
 													className="item-image"
 													href={"/products/" + itemc.name}>
-													<img src={"../assets/img/products/" + itemc.range + "/" + itemc.image} alt="" />
+													<img src={"../assets/img/products/" + itemc.range + " RANGE/" + itemc.image} alt="" />
 													<div className="discount">15% OFF</div>
 												</Link>
 
@@ -227,7 +138,13 @@ export default function Products() {
 									</div>
 								)}
 							</div>
-							<ul className="pagination justify-content-center mt-0">
+							<Pagination
+								items={data.length} // 100
+								currentPage={currentPage} // 1
+								pageSize={pageSize} // 10
+								onPageChange={onPageChange}
+							/>
+{/* 							<ul className="pagination justify-content-center mt-0">
 								<li className="page-item disabled"><a href="javascript:;" className="page-link">Previous</a></li>
 								<li className="page-item active"><a className="page-link" href="javascript:;">1</a></li>
 								<li className="page-item"><a className="page-link" href="javascript:;">2</a></li>
@@ -235,7 +152,7 @@ export default function Products() {
 								<li className="page-item"><a className="page-link" href="javascript:;">4</a></li>
 								<li className="page-item"><a className="page-link" href="javascript:;">5</a></li>
 								<li className="page-item"><a className="page-link" href="javascript:;">Next</a></li>
-							</ul>
+							</ul> */}
 						</div>
 					</div>
 				</div>

@@ -30,7 +30,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Color Admin | E-Commerce Front End Theme</title>
+        <title>PAPE | Premium Bath Fittings</title>
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
         <meta content="" name="description" />
         <meta content="" name="author" />
@@ -43,7 +43,8 @@ export default async function RootLayout({
             <div className="container">
               <div className="collapse navbar-collapse">
                 <ul className="nav navbar-nav">
-                  <li className="dropdown dropdown-hover">
+                <li><a href="/customerCare"><img src="../assets/img/flag/flag-english.png" className="flag-img" alt="" /> English </a></li>
+{/*                   <li className="dropdown dropdown-hover">
                     <a href="#" data-bs-toggle="dropdown"><img src="../assets/img/flag/flag-english.png" className="flag-img" alt="" /> English <b className="caret"></b></a>
                     <ul className="dropdown-menu">
                       <li><a href="#" className="dropdown-item"><img src="../assets/img/flag/flag-english.png" className="flag-img" alt="" /> English</a></li>
@@ -52,9 +53,9 @@ export default async function RootLayout({
                       <li><a href="#" className="dropdown-item"><img src="../assets/img/flag/flag-french.png" className="flag-img" alt="" /> French</a></li>
                       <li><a href="#" className="dropdown-item"><img src="../assets/img/flag/flag-chinese.png" className="flag-img" alt="" /> Chinese</a></li>
                     </ul>
-                  </li>
+                  </li> */}
                   <li><a href="/customerCare">Customer Care</a></li>
-                  <li><a href="#">Order Tracker</a></li>
+                  {/* <li><a href="#">Order Tracker</a></li> */}
                 </ul>
                 <ul className="nav navbar-nav navbar-end">
                   {/* 						<li><a href="#">Career</a></li>
@@ -105,7 +106,7 @@ export default async function RootLayout({
                               <ul className="dropdown-menu-list">
                                 {ranges && ranges.map((item: any, index: any) => <li key={index}>
                                   <Link
-                                    href={"/products?product="+item}
+                                    href={"/products?range="+item}
                                   >
                                     {item}
                                   </Link></li>)}
@@ -118,7 +119,7 @@ export default async function RootLayout({
                                 <div className="col-lg-auto">
                                   <h4 className="title">{cat}</h4>
                                   <ul className="dropdown-menu-list">
-                                    {products && products.filter((obj: any) => obj.category === cat).map((item: any, index: any) => {
+                                    {products && products.filter((obj: any) => obj.category === cat && (obj.range === 'ARYA' || obj.range === 'HEALTH')).map((item: any, index: any) => {
                                       return <li key={index}><a href={"/products/" + item.product_id}>{item.name}</a></li>
                                     })}
                                   </ul>
@@ -199,7 +200,13 @@ export default async function RootLayout({
                 </div>
                 <div className="header-nav">
                   <ul className="nav justify-content-end">
-                    <li className="dropdown dropdown-hover">
+                  <li>
+                      <a href="/customerCare">
+                      
+                        <span className="d-none d-xl-inline"><i className="fa fa-phone"></i> Contact Us</span>
+                      </a>
+                    </li>
+{/*                     <li className="dropdown dropdown-hover">
                       <a href="#" className="header-cart" data-bs-toggle="dropdown">
                         <i className="fa fa-shopping-bag"></i>
                         <span className="total">2</span>
@@ -261,7 +268,7 @@ export default async function RootLayout({
                         <img src="../assets/img/user/user-1.jpg" className="user-img" alt="" />
                         <span className="d-none d-xl-inline">Login / Register</span>
                       </a>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
               </div>
