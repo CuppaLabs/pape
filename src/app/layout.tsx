@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from 'next/link'
+import { Suspense } from "react"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -276,8 +277,9 @@ export default async function RootLayout({
           </div>
 
 
-
+          <Suspense>
           {children}
+          </Suspense>
           <div id="footer" className="footer">
             <div className="container">
               <div className="row">
