@@ -6,7 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import Select, { ControlProps, StylesConfig, components } from 'react-select'
 
 async function getData() {
-	const products = await fetch('http://localhost:3000/assets/products.json').then((res) => res.json())
+	const products = await fetch('https://main.d1ti4231prxllr.amplifyapp.com/assets/products.json').then((res) => res.json())
 
 	return products.map((prod: any) => ({
 		"slug": prod.product_id,

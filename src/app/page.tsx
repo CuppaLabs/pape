@@ -4,7 +4,7 @@ import Carousel from "react-bootstrap/Carousel";
 import { Container } from "react-bootstrap";
 
 async function getData() {
-	const products = await fetch('http://localhost:3000/assets/products.json').then((res) => res.json())
+	const products = await fetch('https://main.d1ti4231prxllr.amplifyapp.com/assets/products.json').then((res) => res.json())
    
 	return products;
   }
