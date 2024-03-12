@@ -1,0 +1,51 @@
+{
+  "pages": {
+    "/_not-found": [
+      "static/chunks/webpack-1be930f9d8d513bf.js",
+      "static/chunks/fd9d1056-372fb5c48108a0d8.js",
+      "static/chunks/69-6c05da3d458fa037.js",
+      "static/chunks/main-app-2d2f8adad48b2874.js",
+      "static/chunks/app/_not-found-5e69dae76cdcfb9f.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-1be930f9d8d513bf.js",
+      "static/chunks/fd9d1056-372fb5c48108a0d8.js",
+      "static/chunks/69-6c05da3d458fa037.js",
+      "static/chunks/main-app-2d2f8adad48b2874.js",
+      "static/chunks/250-ec6ea2d175ded2c7.js",
+      "static/css/e7594522f47ce014.css",
+      "static/chunks/app/layout-19f2996562a7113d.js"
+    ],
+    "/customerCare/page": [
+      "static/chunks/webpack-1be930f9d8d513bf.js",
+      "static/chunks/fd9d1056-372fb5c48108a0d8.js",
+      "static/chunks/69-6c05da3d458fa037.js",
+      "static/chunks/main-app-2d2f8adad48b2874.js",
+      "static/chunks/app/customerCare/page-a089e8e3613505f3.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-1be930f9d8d513bf.js",
+      "static/chunks/fd9d1056-372fb5c48108a0d8.js",
+      "static/chunks/69-6c05da3d458fa037.js",
+      "static/chunks/main-app-2d2f8adad48b2874.js",
+      "static/chunks/813-a94a244e02b23d94.js",
+      "static/chunks/app/page-586eb4dff6735098.js"
+    ],
+    "/products/page": [
+      "static/chunks/webpack-1be930f9d8d513bf.js",
+      "static/chunks/fd9d1056-372fb5c48108a0d8.js",
+      "static/chunks/69-6c05da3d458fa037.js",
+      "static/chunks/main-app-2d2f8adad48b2874.js",
+      "static/chunks/250-ec6ea2d175ded2c7.js",
+      "static/chunks/256-f2120786b6096cdc.js",
+      "static/chunks/app/products/page-d7c5cf05430f81b2.js"
+    ],
+    "/products/[slug]/page": [
+      "static/chunks/webpack-1be930f9d8d513bf.js",
+      "static/chunks/fd9d1056-372fb5c48108a0d8.js",
+      "static/chunks/69-6c05da3d458fa037.js",
+      "static/chunks/main-app-2d2f8adad48b2874.js",
+      "static/chunks/app/products/[slug]/page-bc477f1634c3e763.js"
+    ]
+  }
+}

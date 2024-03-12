@@ -151,13 +151,13 @@ export default async function RootLayout({
                                   <Link
                                   key={index}
                                   className="dropdown-item"
-                                    href={"/products?product="+item}
+                                    href={"/products?range="+item}
                                   >
                                     {item}
                                   </Link>)}
                         </div>
                       </li>
-                      <li><a href="product.html">New Arrival</a></li>
+                      <li><a href="/products">New Arrival</a></li>
                       {/* 								<li className="dropdown dropdown-hover">
 									<a href="#" data-bs-toggle="dropdown">
 										Pages

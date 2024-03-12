@@ -35,3 +35,17 @@
 .search-item-container .col {
     padding: 0;
 }
+.product-sort {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.react-select-container {
+    width: 285px;
+}
+.css-1dimb5e-singleValue {
+    font-weight: 700;
+}
+.search-container .search-sidebar {
+    width: 20% !important;
+}

@@ -1,5 +1,3 @@
-import type { InferGetStaticPropsType, GetStaticProps } from 'next'
-
 
 export async function generateStaticParams() {
   const products = await fetch('http://localhost:3000/assets/products.json').then((res) => res.json())
